@@ -1,0 +1,13 @@
+[
+{
+"quote": "Here is an example quote
+that doesn't use text wrapping.",
+"author": "Michael Scott",
+"no-text-wrap": null
+},
+{
+"quote": "And here's a quote without an author that uses a custom text-wrap value and height offset."
+"text-wrap": 40,
+"height-offset": 5,
+}
+]
