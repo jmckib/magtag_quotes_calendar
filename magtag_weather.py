@@ -143,9 +143,8 @@ def main():
 			date.tm_year,
 		)
 		today_icon[0] = ICON_MAP.index(data["weather"][0]["icon"][:2])
-		today_morn_temp.text = temperature_text(data["temp"]["morn"])
-		today_day_temp.text = temperature_text(data["temp"]["day"])
-		today_night_temp.text = temperature_text(data["temp"]["night"])
+		today_min_temp.text = temperature_text(data["temp"]["min"])
+		today_max_temp.text = temperature_text(data["temp"]["max"])
 		today_humidity.text = "{:3d}%".format(data["humidity"])
 		today_wind.text = wind_text(data["wind_speed"])
 		today_sunrise.text = "{:2d}:{:02d} AM".format(sunrise.tm_hour, sunrise.tm_min)
@@ -191,17 +190,13 @@ def main():
 		tile_height=70,
 	)
 
-	today_morn_temp = label.Label(terminalio.FONT, text="+100F", color=0x000000)
-	today_morn_temp.anchor_point = (0.5, 0)
-	today_morn_temp.anchored_position = (118, 59)
+	today_min_temp = label.Label(terminalio.FONT, text="+100F", color=0x000000)
+	today_min_temp.anchor_point = (0.5, 0)
+	today_min_temp.anchored_position = (124, 59)
 
-	today_day_temp = label.Label(terminalio.FONT, text="+100F", color=0x000000)
-	today_day_temp.anchor_point = (0.5, 0)
-	today_day_temp.anchored_position = (149, 59)
-
-	today_night_temp = label.Label(terminalio.FONT, text="+100F", color=0x000000)
-	today_night_temp.anchor_point = (0.5, 0)
-	today_night_temp.anchored_position = (180, 59)
+	today_max_temp = label.Label(terminalio.FONT, text="+100F", color=0x000000)
+	today_max_temp.anchor_point = (0.5, 0)
+	today_max_temp.anchored_position = (158, 59)
 
 	today_humidity = label.Label(terminalio.FONT, text="100%", color=0x000000)
 	today_humidity.anchor_point = (0, 0.5)
@@ -223,9 +218,8 @@ def main():
 	today_banner.append(today_date)
 	today_banner.append(city_name)
 	today_banner.append(today_icon)
-	today_banner.append(today_morn_temp)
-	today_banner.append(today_day_temp)
-	today_banner.append(today_night_temp)
+	today_banner.append(today_min_temp)
+	today_banner.append(today_max_temp)
 	today_banner.append(today_humidity)
 	today_banner.append(today_wind)
 	today_banner.append(today_sunrise)
